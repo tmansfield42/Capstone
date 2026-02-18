@@ -1,0 +1,145 @@
+[
+    {
+        "ip": "192.168.1.1",
+        "service": "dropbear sshd",
+        "version": "unknown",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.223",
+        "service": "airtunes rtspd",
+        "version": "377.40.00",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.239",
+        "service": "vmware authentication daemon",
+        "version": "1.10",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.239",
+        "service": "vmware authentication daemon",
+        "version": "1.0",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.239",
+        "service": "microsoft httpapi httpd",
+        "version": "2.0",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.143",
+        "service": "apache httpd",
+        "version": "2.4.23",
+        "risk_score": 100,
+        "vulnerabilities": [
+            {
+                "cve": "CVE-2017-3167",
+                "severity": "HIGH",
+                "description": "Authentication bypass in mod_authnz_ldap"
+            },
+            {
+                "cve": "CVE-2017-3169",
+                "severity": "HIGH",
+                "description": "mod_ssl input validation flaw"
+            },
+            {
+                "cve": "CVE-2017-7668",
+                "severity": "MEDIUM",
+                "description": "Weak htpasswd parameter validation"
+            },
+            {
+                "cve": "CVE-2017-7679",
+                "severity": "HIGH",
+                "description": "mod_mime buffer overflow (RCE)"
+            },
+            {
+                "cve": "CVE-2017-9788",
+                "severity": "HIGH",
+                "description": "OptionsBleed memory disclosure"
+            },
+            {
+                "cve": "CVE-2016-4979",
+                "severity": "MEDIUM",
+                "description": "mod_auth_digest insufficient randomness"
+            }
+        ]
+    },
+    {
+        "ip": "192.168.1.143",
+        "service": "microsoft windows rpc",
+        "version": "unknown",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.143",
+        "service": "microsoft windows netbios-ssn",
+        "version": "unknown",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.143",
+        "service": "microsoft windows 7 - 10 microsoft-ds",
+        "version": "unknown",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.143",
+        "service": "microsoft httpapi httpd",
+        "version": "2.0",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.143",
+        "service": "microsoft windows rpc",
+        "version": "unknown",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.143",
+        "service": "microsoft windows rpc",
+        "version": "unknown",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.143",
+        "service": "microsoft windows rpc",
+        "version": "unknown",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.143",
+        "service": "microsoft windows rpc",
+        "version": "unknown",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.143",
+        "service": "microsoft windows rpc",
+        "version": "unknown",
+        "risk_score": 0,
+        "vulnerabilities": []
+    },
+    {
+        "ip": "192.168.1.143",
+        "service": "microsoft windows rpc",
+        "version": "unknown",
+        "risk_score": 0,
+        "vulnerabilities": []
+    }
+]
