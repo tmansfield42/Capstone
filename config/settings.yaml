@@ -1,0 +1,36 @@
+# ProbePoint Configuration
+
+# Raspberry Pi identification
+pi:
+  id: "pi-001"                    # Unique identifier for this device
+  location: "test-lab"            # Deployment location
+
+# Client information
+client:
+  id: "client-test"               # Client identifier
+  name: "Test Network"            # Client name for reports
+
+# Scan parameters
+scan:
+  network_range: "192.168.1.0/24" # Network to scan
+  intensity: "T4"                 # Nmap timing (T1-T5, T4 recommended)
+  timeout: 300                    # Seconds per host scan
+  interface: "eth0"               # Network interface (eth0 or wlan0)
+
+# AWS server configuration
+aws:
+  endpoint: "http://localhost:5000/api/upload"  # Change to AWS IP when ready
+  api_key: "development-key-123"                # Change in production
+  retry_attempts: 3
+  retry_delay: 10
+
+# Storage paths
+storage:
+  results_dir: "C:\Users\louis\OneDrive\Documents\Capstone\probepoint_pi\results"
+  logs_dir: "C:\Users\louis\OneDrive\Documents\Capstone\probepoint_pi\logs"
+
+# Scanning toggles (enable/disable specific scan types)
+features:
+  credential_testing: true
+  web_scanning: true
+  tls_scanning: true
