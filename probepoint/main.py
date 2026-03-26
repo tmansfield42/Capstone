@@ -82,6 +82,80 @@ def run_pipeline():
         sys.exit(1)
 
 
+    # ── PHASE 2: Deep Port Scan ──────────────────
+    # Always runs — port data is required by all downstream phases
+    print("\n[PHASE 2] Deep Port Scan")
+    print("-" * 30)
+    port_scan_ok = False
+    try:
+        port_scanner.scan_all_hosts(output_file, timing=timing, timeout=timeout, interface=interface)
+        port_scan_ok = True
+        print("[PHASE 2] Complete.")
+    except Exception as e:
+        print(f"[PHASE 2] Failed: {e}")
+        print("[PHASE 2] Phases 3–5 will be skipped — no port data.")
+
+
+    # ── PHASE 3: Credential Testing ─────────────
+    print("\n[PHASE 3] Credential Testing")
+    print("-" * 30)
+    if not port_scan_ok:
+        print("[PHASE 3] Skipped — Phase 2 did not complete.")
+    elif not features.get("credential_testing", False):
+        print("[PHASE 3] Disabled in settings.yaml — skipping.")
+    else:
+        try:
+            wordlist = config.get("hydra", {}).get("wordlist", "testing")
+            credential_tester.test_all_hosts(output_file, wordlist=wordlist, timeout=timeout)
+            print("[PHASE 3] Complete.")
+        except Exception as e:
+            print(f"[PHASE 3] Failed: {e}")
+
+
+    # ── PHASE 4: TLS Scanning ────────────────────
+    print("\n[PHASE 4] TLS Scanning")
+    print("-" * 30)
+    if not port_scan_ok:
+        print("[PHASE 4] Skipped — Phase 2 did not complete.")
+    elif not features.get("tls_scanning", False):
+        print("[PHASE 4] Disabled in settings.yaml — skipping.")
+    else:
+        try:
+            tls_scanner.scan_all_hosts(output_file, timeout=timeout)
+            print("[PHASE 4] Complete.")
+        except Exception as e:
+            print(f"[PHASE 4] Failed: {e}")
+
+
+    # ── PHASE 5: Nikto Web Scan ──────────────────
+    print("\n[PHASE 5] Nikto Web Scan")
+    print("-" * 30)
+    if not port_scan_ok:
+        print("[PHASE 5] Skipped — Phase 2 did not complete.")
+    elif not features.get("nikto_scanning", False):
+        print("[PHASE 5] Disabled in settings.yaml — skipping.")
+    else:
+        try:
+            nikto_scanner.scan_all_hosts(output_file, timeout=timeout)
+            print("[PHASE 5] Complete.")
+        except Exception as e:
+            print(f"[PHASE 5] Failed: {e}")
+
+
+    # ── PHASE 6: Collect & Upload ────────────────
+    print("\n[PHASE 6] Collect & Upload")
+    print("-" * 30)
+    try:
+        payload = collector.collect(output_file)
+        endpoint  = config["aws"]["endpoint"]
+        api_key   = config["aws"]["api_key"]
+        retries   = config["aws"].get("retry_attempts", 3)
+        delay     = config["aws"].get("retry_delay", 10)
+        uploader.upload(payload, endpoint, api_key, retries, delay)
+        print("[PHASE 6] Complete.")
+    except Exception as e:
+        print(f"[PHASE 6] Failed: {e}")
+
 
     # ── DONE ─────────────────────────────────────
     print("\n" + "=" * 50)

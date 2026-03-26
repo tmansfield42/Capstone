@@ -1,0 +1,33 @@
+{
+  "scan_meta": {
+    "timestamp": "2026-03-26T17:39:47.979691",
+    "pi_id": "pi-001",
+    "client_id": "client-test",
+    "client_name": "Test Network",
+    "network_range": "192.168.1.0/24",
+    "hosts_found": 3
+  },
+  "hosts": {
+    "192.168.1.1": {
+      "status": "up",
+      "mac": "C4:04:15:8B:A5:8F",
+      "vendor": "Netgear",
+      "os_guess": null,
+      "ports": {}
+    },
+    "192.168.1.239": {
+      "status": "up",
+      "mac": "94:BB:43:1B:17:75",
+      "vendor": "AzureWave Technology",
+      "os_guess": null,
+      "ports": {}
+    },
+    "192.168.1.186": {
+      "status": "up",
+      "mac": null,
+      "vendor": null,
+      "os_guess": null,
+      "ports": {}
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "scan_meta": {
+    "timestamp": "2026-03-19T00:58:32.533802",
+    "pi_id": "pi-001",
+    "client_id": "client-test",
+    "client_name": "Test Network",
+    "network_range": "192.168.1.0/24",
+    "hosts_found": 2
+  },
+  "hosts": {
+    "192.168.1.1": {
+      "status": "up",
+      "mac": "C4:04:15:8B:A5:8F",
+      "vendor": "Netgear",
+      "os_guess": "Linux 4.15 - 5.19",
+      "ports": {
+        "22": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "ssh",
+          "product": "Dropbear sshd",
+          "version": "",
+          "credential_test": {
+            "tested": true,
+            "weak_creds_found": false,
+            "pairs": []
+          }
+        },
+        "53": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "domain",
+          "product": "Cloudflare public DNS",
+          "version": ""
+        },
+        "80": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "http",
+          "product": "OpenWrt uHTTPd",
+          "version": "",
+          "credential_test": {
+            "tested": true,
+            "weak_creds_found": true,
+            "pairs": [
+              {
+                "username": "testing",
+                "password": "testing"
+              }
+            ]
+          }
+        },
+        "443": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "https",
+          "product": "",
+          "version": "",
+          "credential_test": {
+            "tested": true,
+            "weak_creds_found": true,
+            "pairs": [
+              {
+                "username": "testing",
+                "password": "testing"
+              }
+            ]
+          },
+          "tls": {
+            "cert_expiry": null,
+            "days_until_expiry": null,
+            "is_expired": null,
+            "self_signed": true,
+            "protocol": "TLSv1.2",
+            "weak_protocol": false,
+            "cipher": "ECDHE-ECDSA-CHACHA20-POLY1305",
+            "weak_cipher": false
+          }
+        }
+      }
+    },
+    "192.168.1.186": {
+      "status": "up",
+      "mac": null,
+      "vendor": null,
+      "os_guess": "Linux 5.0 - 6.2",
+      "ports": {
+        "22": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "ssh",
+          "product": "OpenSSH",
+          "version": "10.2p1 Debian 3",
+          "credential_test": {
+            "tested": true,
+            "weak_creds_found": false,
+            "pairs": []
+          }
+        }
+      }
+    }
+  }
+}

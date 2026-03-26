@@ -1,0 +1,166 @@
+{
+  "scan_meta": {
+    "timestamp": "2026-03-25T22:26:25.664605",
+    "pi_id": "pi-001",
+    "client_id": "client-test",
+    "client_name": "Test Network",
+    "network_range": "192.168.1.0/24",
+    "hosts_found": 4
+  },
+  "hosts": {
+    "192.168.1.1": {
+      "status": "up",
+      "mac": "C4:04:15:8B:A5:8F",
+      "vendor": "Netgear",
+      "os_guess": "Linux 4.15 - 5.19",
+      "ports": {
+        "22": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "ssh",
+          "product": "Dropbear sshd",
+          "version": "",
+          "credential_test": {
+            "tested": true,
+            "weak_creds_found": false,
+            "pairs": []
+          }
+        },
+        "53": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "domain",
+          "product": "Cloudflare public DNS",
+          "version": ""
+        },
+        "80": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "http",
+          "product": "OpenWrt uHTTPd",
+          "version": "",
+          "credential_test": {
+            "tested": true,
+            "weak_creds_found": true,
+            "pairs": [
+              {
+                "username": "testing",
+                "password": "testing"
+              }
+            ]
+          }
+        },
+        "443": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "https",
+          "product": "",
+          "version": "",
+          "credential_test": {
+            "tested": true,
+            "weak_creds_found": true,
+            "pairs": [
+              {
+                "username": "testing",
+                "password": "testing"
+              }
+            ]
+          },
+          "tls": {
+            "cert_expiry": null,
+            "days_until_expiry": null,
+            "is_expired": null,
+            "self_signed": true,
+            "protocol": "TLSv1.2",
+            "weak_protocol": false,
+            "cipher": "ECDHE-ECDSA-CHACHA20-POLY1305",
+            "weak_cipher": false
+          }
+        }
+      }
+    },
+    "192.168.1.126": {
+      "status": "up",
+      "mac": "F8:17:2D:55:C5:A8",
+      "vendor": "Tuya Smart",
+      "os_guess": "lwIP 2.1.0 - 2.2.0",
+      "ports": {
+        "6668": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "irc",
+          "product": "",
+          "version": ""
+        }
+      }
+    },
+    "192.168.1.239": {
+      "status": "up",
+      "mac": "94:BB:43:1B:17:75",
+      "vendor": "AzureWave Technology",
+      "os_guess": "Microsoft Windows 10 1803",
+      "ports": {
+        "902": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "vmware-auth",
+          "product": "VMware Authentication Daemon",
+          "version": "1.10"
+        },
+        "912": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "vmware-auth",
+          "product": "VMware Authentication Daemon",
+          "version": "1.0"
+        },
+        "5357": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "http",
+          "product": "Microsoft HTTPAPI httpd",
+          "version": "2.0",
+          "credential_test": {
+            "tested": true,
+            "weak_creds_found": false,
+            "pairs": []
+          },
+          "web_vulns": [
+            {
+              "id": "999957",
+              "url": "",
+              "description": "/: The anti-clickjacking X-Frame-Options header is not present.",
+              "method": "GET"
+            },
+            {
+              "id": "999103",
+              "url": "",
+              "description": "/: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type.",
+              "method": "GET"
+            }
+          ]
+        }
+      }
+    },
+    "192.168.1.186": {
+      "status": "up",
+      "mac": null,
+      "vendor": null,
+      "os_guess": "Linux 5.0 - 6.2",
+      "ports": {
+        "22": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "ssh",
+          "product": "OpenSSH",
+          "version": "10.2p1 Debian 3",
+          "credential_test": {
+            "tested": true,
+            "weak_creds_found": false,
+            "pairs": []
+          }
+        }
+      }
+    }
+  }
+}

@@ -15,11 +15,9 @@ def get_network_range(configured_range=None):
     """
     Returns the network range to scan.
 
-    If configured_range is provided from settings.yaml, use it directly.
-    else, auto-detect from the Pi's active interface by connecting a
-    UDP socket to 8.8.8.8 (no data is sent — this just reveals the local IP). assumes /24 subnet 
-    in prod we make this configurable per client since some clients might have different subnet sizes. 
-    If auto-detection fails  it raises an exception with instructions to set the range manually.
+    If configured_range is provided (from settings.yaml), use it directly.
+    Otherwise, auto-detect from the Pi's active interface by connecting a
+    UDP socket to 8.8.8.8 (no data is sent — this just reveals the local IP).
     """
     if configured_range:
         print(f"[*] Using configured network range: {configured_range}")
