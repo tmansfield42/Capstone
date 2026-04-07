@@ -8,6 +8,7 @@ from scans import port_scanner
 from scans import credential_tester
 from scans import tls_scanner
 from scans import nikto_scanner
+from scans import iot_scanner
 from utils import collector
 from utils import uploader
 from utils import logger
@@ -94,6 +95,21 @@ def run_pipeline():
     except Exception as e:
         print(f"[PHASE 2] Failed: {e}")
         print("[PHASE 2] Phases 3–5 will be skipped — no port data.")
+
+
+    # ── PHASE 2.5: IoT Classification ───────────
+    print("\n[PHASE 2.5] IoT Classification")
+    print("-" * 30)
+    if not port_scan_ok:
+        print("[PHASE 2.5] Skipped — Phase 2 did not complete.")
+    elif not features.get("iot_scanning", False):
+        print("[PHASE 2.5] Disabled in settings.yaml — skipping.")
+    else:
+        try:
+            iot_scanner.scan_all_hosts(output_file, http_timeout=timeout, ssdp_timeout=3)
+            print("[PHASE 2.5] Complete.")
+        except Exception as e:
+            print(f"[PHASE 2.5] Failed: {e}")
 
 
     # ── PHASE 3: Credential Testing ─────────────

@@ -1,3 +1,32 @@
+"""
+nvd_integration.py
+──────────────────────────────────────────────────────────────────────────────
+Python 3.12 conversion of NVDAPIIntegration.ps1, updated to parse the actual
+JSON structure that the Raspberry Pi POSTs via API Gateway.
+
+Pi POST structure:
+{
+  "scan_meta": { "timestamp", "pi_id", "client_id", ... },
+  "hosts": {
+    "192.168.1.x": {
+      "os_guess": "...",
+      "ports": {
+        "22": {
+          "service": "ssh",
+          "product": "OpenSSH",
+          "version": "10.2p1 Debian 3",
+          "credential_test": { "tested": true, "weak_creds_found": false, "pairs": [] },
+          "tls": { "self_signed": true, "weak_protocol": false, ... }
+        }
+      }
+    }
+  }
+}
+
+Flow:
+    API Gateway → BackendTestFunction (this file) → EmailTest
+"""
+
 import json
 import os
 import time
@@ -7,6 +36,7 @@ import urllib.parse
 import urllib.error
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 # ── Config ────────────────────────────────────────────────────────────────────
 NVD_API_KEY  = os.environ["NVD_API_KEY"]
@@ -279,21 +309,25 @@ def lambda_handler(event, context):
     import boto3
 
     raw_body = event.get("body", "{}")
+    logger.info(f"Raw body length: {len(raw_body)} chars")
+    
     if isinstance(raw_body, str):
         pi_body = json.loads(raw_body)
     else:
         pi_body = raw_body
+    
+    logger.info(f"Hosts in parsed body: {list(pi_body.get('hosts', {}).keys())}")
 
     body = build_vuln_report(pi_body)
 
     lambda_client = boto3.client("lambda")
     lambda_client.invoke(
-        FunctionName="EmailTest",
+        FunctionName="RiskScorer",
         InvocationType="Event",
         Payload=json.dumps(body).encode(),
     )
 
     return {
         "statusCode": 200,
-        "body": json.dumps({"message": "NVD scan complete, email triggered."}),
+        "body": json.dumps({"message": "NVD scan complete, sent to RiskScorer."}),
     }

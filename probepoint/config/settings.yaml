@@ -39,3 +39,4 @@ features:
   credential_testing: true
   nikto_scanning: true          # Gates Nikto web vuln scanner only; deep port scan always runs
   tls_scanning: true
+  iot_scanning: true
