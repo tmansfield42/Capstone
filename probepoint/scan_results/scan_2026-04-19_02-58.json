@@ -1,0 +1,405 @@
+{
+  "scan_meta": {
+    "timestamp": "2026-04-19T02:58:22.905403",
+    "pi_id": "pi-001",
+    "client_id": "client-test",
+    "client_name": "Test Network",
+    "network_range": "192.168.1.0/24",
+    "hosts_found": 7
+  },
+  "hosts": {
+    "192.168.1.1": {
+      "status": "up",
+      "mac": "C4:04:15:8B:A5:8F",
+      "vendor": "Netgear",
+      "os_guess": "Linux 4.15 - 5.19",
+      "ports": {
+        "22": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "ssh",
+          "product": "Dropbear sshd",
+          "version": ""
+        },
+        "53": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "domain",
+          "product": "Cloudflare public DNS",
+          "version": ""
+        },
+        "80": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "http",
+          "product": "OpenWrt uHTTPd",
+          "version": ""
+        },
+        "443": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "https",
+          "product": "",
+          "version": ""
+        }
+      },
+      "iot_classification": {
+        "is_iot": false,
+        "device_type": "Not IoT",
+        "confidence": "low",
+        "security_flags": [],
+        "flag_count": 0,
+        "critical_flags": 0,
+        "high_flags": 0,
+        "upnp": null,
+        "http_banners": {
+          "80": "HTTP/1.0 200 OK\r\nConnection: close\r\n"
+        },
+        "bad_vendor": null
+      }
+    },
+    "192.168.1.101": {
+      "status": "up",
+      "mac": "D2:B5:FF:F8:39:66",
+      "vendor": "Unknown",
+      "os_guess": null,
+      "ports": {},
+      "iot_classification": {
+        "is_iot": false,
+        "device_type": "Not IoT",
+        "confidence": "low",
+        "security_flags": [
+          {
+            "port": "N/A",
+            "issue": "Bad Vendor: Huawei",
+            "severity": "CRITICAL",
+            "description": "Known-bad vendor (critical tier). NDAA Section 889 prohibited; FCC Covered List."
+          }
+        ],
+        "flag_count": 1,
+        "critical_flags": 1,
+        "high_flags": 0,
+        "upnp": null,
+        "http_banners": {},
+        "bad_vendor": {
+          "vendor_key": "huawei",
+          "display_name": "Huawei",
+          "tier": "critical",
+          "reasons": [
+            "NDAA Section 889 prohibited",
+            "FCC Covered List",
+            "HG series routers chronically exploited"
+          ],
+          "confidence": "high",
+          "matched_signals": [
+            "mac_prefix",
+            "name_pattern"
+          ]
+        }
+      }
+    },
+    "192.168.1.126": {
+      "status": "up",
+      "mac": "F8:17:2D:55:C5:A8",
+      "vendor": "Tuya Smart",
+      "os_guess": "lwIP 2.1.0 - 2.2.0",
+      "ports": {
+        "6668": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "irc",
+          "product": "",
+          "version": ""
+        }
+      },
+      "iot_classification": {
+        "is_iot": true,
+        "device_type": "Smart Plug/Tuya",
+        "confidence": "high",
+        "security_flags": [
+          {
+            "port": 6668,
+            "issue": "Tuya Protocol Exposed",
+            "severity": "MEDIUM",
+            "description": "Tuya local control protocol port open."
+          }
+        ],
+        "flag_count": 1,
+        "critical_flags": 0,
+        "high_flags": 0,
+        "upnp": null,
+        "http_banners": {},
+        "bad_vendor": null
+      }
+    },
+    "192.168.1.143": {
+      "status": "up",
+      "mac": "EC:0E:C4:6E:86:7D",
+      "vendor": "Hon Hai Precision Ind.",
+      "os_guess": "Microsoft Windows Vista SP2 or Windows 7 or Windows Server 2008 R2 or Windows 8.1",
+      "ports": {
+        "22": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "ssh",
+          "product": "",
+          "version": ""
+        },
+        "80": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "http",
+          "product": "Apache httpd",
+          "version": "2.4.23"
+        },
+        "135": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "msrpc",
+          "product": "Microsoft Windows RPC",
+          "version": ""
+        },
+        "139": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "netbios-ssn",
+          "product": "Microsoft Windows netbios-ssn",
+          "version": ""
+        },
+        "445": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "microsoft-ds",
+          "product": "Microsoft Windows 7 - 10 microsoft-ds",
+          "version": ""
+        },
+        "5357": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "http",
+          "product": "Microsoft HTTPAPI httpd",
+          "version": "2.0"
+        },
+        "49152": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "msrpc",
+          "product": "Microsoft Windows RPC",
+          "version": ""
+        },
+        "49153": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "msrpc",
+          "product": "Microsoft Windows RPC",
+          "version": ""
+        },
+        "49154": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "msrpc",
+          "product": "Microsoft Windows RPC",
+          "version": ""
+        },
+        "49155": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "msrpc",
+          "product": "Microsoft Windows RPC",
+          "version": ""
+        },
+        "49156": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "msrpc",
+          "product": "Microsoft Windows RPC",
+          "version": ""
+        },
+        "49158": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "msrpc",
+          "product": "Microsoft Windows RPC",
+          "version": ""
+        },
+        "49159": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "msrpc",
+          "product": "Microsoft Windows RPC",
+          "version": ""
+        }
+      },
+      "iot_classification": {
+        "is_iot": false,
+        "device_type": "Not IoT",
+        "confidence": "low",
+        "security_flags": [],
+        "flag_count": 0,
+        "critical_flags": 0,
+        "high_flags": 0,
+        "upnp": null,
+        "http_banners": {
+          "80": "HTTP/1.1 200 OK\r\nDate: Sun, 19 Apr 2026 07:06:52 GMT\r\nServer: Apache/2.4.23 (Win64)\r\nLast-Modified: Mon, 17 Nov 2025 00:21:27 GMT\r\nETag: \"2e-643bf5403e7e3\"\r\nAccept-Ranges: bytes\r\nContent-Length: 46\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n<html><body><h1>It works!</h1></body></html>\r\n"
+        },
+        "bad_vendor": null
+      }
+    },
+    "192.168.1.223": {
+      "status": "up",
+      "mac": "54:67:E6:99:C8:71",
+      "vendor": "Shenzhen MTC",
+      "os_guess": "Android 7.1.2 (Linux 3.4)",
+      "ports": {
+        "7000": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "rtsp",
+          "product": "AirTunes rtspd",
+          "version": "377.40.00"
+        },
+        "8009": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "tcpwrapped",
+          "product": "",
+          "version": ""
+        }
+      },
+      "iot_classification": {
+        "is_iot": true,
+        "device_type": "Unknown IoT Device",
+        "confidence": "medium",
+        "security_flags": [],
+        "flag_count": 0,
+        "critical_flags": 0,
+        "high_flags": 0,
+        "upnp": null,
+        "http_banners": {},
+        "bad_vendor": null
+      }
+    },
+    "192.168.1.239": {
+      "status": "up",
+      "mac": "94:BB:43:1B:17:75",
+      "vendor": "AzureWave Technology",
+      "os_guess": "Microsoft Windows 10 1803",
+      "ports": {
+        "902": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "vmware-auth",
+          "product": "VMware Authentication Daemon",
+          "version": "1.10"
+        },
+        "912": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "vmware-auth",
+          "product": "VMware Authentication Daemon",
+          "version": "1.0"
+        },
+        "2121": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "ftp",
+          "product": "vsftpd",
+          "version": "2.3.4"
+        },
+        "2222": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "ssh",
+          "product": "OpenSSH",
+          "version": "4.7p1 Debian 8ubuntu1"
+        },
+        "5357": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "http",
+          "product": "Microsoft HTTPAPI httpd",
+          "version": "2.0"
+        },
+        "8080": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "http",
+          "product": "Apache httpd",
+          "version": "2.4.66"
+        },
+        "8081": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "http",
+          "product": "Apache httpd",
+          "version": "2.2.8"
+        }
+      },
+      "iot_classification": {
+        "is_iot": false,
+        "device_type": "IP Camera (ONVIF)",
+        "confidence": "low",
+        "security_flags": [
+          {
+            "port": 8080,
+            "issue": "ONVIF HTTP Interface",
+            "severity": "MEDIUM",
+            "description": "ONVIF HTTP management interface open \u2014 check for unauthenticated access."
+          }
+        ],
+        "flag_count": 1,
+        "critical_flags": 0,
+        "high_flags": 0,
+        "upnp": null,
+        "http_banners": {
+          "8080": "HTTP/1.1 302 Found\r\nDate: Sun, 19 Apr 2026 07:06:56 GMT\r\nServer: Apache/2.4.66 (Debian)\r\nX-Powered-By: PHP/8.5.4\r\nSet-Cookie: security=impossible; path=/; HttpOnly\r\nSet-Cookie: PHPSESSID=d6d2e0674cde971d8ca964a434e6afb0; expires=Mon, 20 Apr 2026 07:06:56 GMT; Max-Age=86400; path=/; HttpOnly; SameSite=Strict\r\nExpires: Thu, 19 Nov 1981 08:52:00 GMT\r\nCache-Control: no-store, no-cache, must-revalidate\r\nPragma: no-cache\r\nSet-Cookie: PHPSESSID=babafdc09d2eb631ad59140302dcd037; expires=Mon, 20 Apr 2026 07:06:56 GM"
+        },
+        "bad_vendor": null
+      }
+    },
+    "192.168.1.186": {
+      "status": "up",
+      "mac": null,
+      "vendor": null,
+      "os_guess": "Linux 5.0 - 6.2",
+      "ports": {
+        "22": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "ssh",
+          "product": "OpenSSH",
+          "version": "10.2p1 Debian 3"
+        }
+      },
+      "iot_classification": {
+        "is_iot": false,
+        "device_type": "Not IoT",
+        "confidence": "low",
+        "security_flags": [],
+        "flag_count": 0,
+        "critical_flags": 0,
+        "high_flags": 0,
+        "upnp": null,
+        "http_banners": {},
+        "bad_vendor": null
+      }
+    }
+  },
+  "iot_summary": {
+    "total_hosts": 7,
+    "iot_device_count": 2,
+    "unknown_device_count": 1,
+    "flagged_device_count": 3,
+    "total_security_flags": 3,
+    "critical_flags": 1,
+    "high_flags": 0,
+    "iot_device_ips": [
+      "192.168.1.126",
+      "192.168.1.223"
+    ],
+    "bad_vendor_count": 1,
+    "bad_vendor_ips": [
+      "192.168.1.101"
+    ]
+  }
+}

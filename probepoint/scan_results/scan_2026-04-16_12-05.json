@@ -1,0 +1,136 @@
+{
+  "scan_meta": {
+    "timestamp": "2026-04-16T12:05:08.131861",
+    "pi_id": "pi-001",
+    "client_id": "client-test",
+    "client_name": "Test Network",
+    "network_range": "192.168.1.0/24",
+    "hosts_found": 4
+  },
+  "hosts": {
+    "192.168.1.1": {
+      "status": "up",
+      "mac": "C4:04:15:8B:A5:8F",
+      "vendor": "Netgear",
+      "os_guess": "Linux 4.15 - 5.19",
+      "ports": {
+        "22": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "ssh",
+          "product": "Dropbear sshd",
+          "version": ""
+        },
+        "53": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "domain",
+          "product": "Cloudflare public DNS",
+          "version": ""
+        },
+        "80": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "http",
+          "product": "OpenWrt uHTTPd",
+          "version": ""
+        },
+        "443": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "https",
+          "product": "",
+          "version": ""
+        }
+      },
+      "iot_classification": {
+        "is_iot": false,
+        "device_type": "Not IoT",
+        "confidence": "low",
+        "security_flags": [],
+        "flag_count": 0,
+        "critical_flags": 0,
+        "high_flags": 0,
+        "upnp": null,
+        "http_banners": {
+          "80": "HTTP/1.0 200 OK\r\nConnection: close\r\n"
+        }
+      }
+    },
+    "192.168.1.208": {
+      "status": "up",
+      "mac": "88:B5:FF:F8:39:66",
+      "vendor": "Shenzhen iComm Semiconductor",
+      "os_guess": null,
+      "ports": {},
+      "iot_classification": {
+        "is_iot": true,
+        "device_type": "Unknown IoT Device",
+        "confidence": "medium",
+        "security_flags": [],
+        "flag_count": 0,
+        "critical_flags": 0,
+        "high_flags": 0,
+        "upnp": null,
+        "http_banners": {}
+      }
+    },
+    "192.168.1.223": {
+      "status": "up",
+      "mac": "54:67:E6:99:C8:71",
+      "vendor": "Shenzhen MTC",
+      "os_guess": null,
+      "ports": {},
+      "iot_classification": {
+        "is_iot": true,
+        "device_type": "Unknown IoT Device",
+        "confidence": "medium",
+        "security_flags": [],
+        "flag_count": 0,
+        "critical_flags": 0,
+        "high_flags": 0,
+        "upnp": null,
+        "http_banners": {}
+      }
+    },
+    "192.168.1.186": {
+      "status": "up",
+      "mac": null,
+      "vendor": null,
+      "os_guess": "Linux 5.0 - 6.2",
+      "ports": {
+        "22": {
+          "protocol": "tcp",
+          "state": "open",
+          "service": "ssh",
+          "product": "OpenSSH",
+          "version": "10.2p1 Debian 3"
+        }
+      },
+      "iot_classification": {
+        "is_iot": false,
+        "device_type": "Not IoT",
+        "confidence": "low",
+        "security_flags": [],
+        "flag_count": 0,
+        "critical_flags": 0,
+        "high_flags": 0,
+        "upnp": null,
+        "http_banners": {}
+      }
+    }
+  },
+  "iot_summary": {
+    "total_hosts": 4,
+    "iot_device_count": 2,
+    "unknown_device_count": 2,
+    "flagged_device_count": 0,
+    "total_security_flags": 0,
+    "critical_flags": 0,
+    "high_flags": 0,
+    "iot_device_ips": [
+      "192.168.1.208",
+      "192.168.1.223"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "scan_meta": {
+    "timestamp": "2026-04-16T01:02:16.573474",
+    "pi_id": "pi-001",
+    "client_id": "client-test",
+    "client_name": "Test Network",
+    "network_range": "192.168.1.0/24",
+    "hosts_found": 7
+  },
+  "hosts": {
+    "192.168.1.1": {
+      "status": "up",
+      "mac": "C4:04:15:8B:A5:8F",
+      "vendor": "Netgear",
+      "os_guess": null,
+      "ports": {}
+    },
+    "192.168.1.101": {
+      "status": "up",
+      "mac": "88:B5:FF:F8:39:66",
+      "vendor": "Shenzhen iComm Semiconductor",
+      "os_guess": null,
+      "ports": {}
+    },
+    "192.168.1.143": {
+      "status": "up",
+      "mac": "EC:0E:C4:6E:86:7D",
+      "vendor": "Hon Hai Precision Ind.",
+      "os_guess": null,
+      "ports": {}
+    },
+    "192.168.1.168": {
+      "status": "up",
+      "mac": "96:66:78:B6:1C:B4",
+      "vendor": "Unknown",
+      "os_guess": null,
+      "ports": {}
+    },
+    "192.168.1.223": {
+      "status": "up",
+      "mac": "54:67:E6:99:C8:71",
+      "vendor": "Shenzhen MTC",
+      "os_guess": null,
+      "ports": {}
+    },
+    "192.168.1.239": {
+      "status": "up",
+      "mac": "94:BB:43:1B:17:75",
+      "vendor": "AzureWave Technology",
+      "os_guess": null,
+      "ports": {}
+    },
+    "192.168.1.186": {
+      "status": "up",
+      "mac": null,
+      "vendor": null,
+      "os_guess": null,
+      "ports": {}
+    }
+  }
+}

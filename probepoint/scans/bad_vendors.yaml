@@ -1,0 +1,277 @@
+# ProbePoint — Known-bad IoT vendor database
+# Consumed by iot_scanner.py check_bad_vendor()
+#
+# Tier meanings:
+#   critical — regulatory prohibition (NDAA 889 / FCC Covered List) or
+#              well-documented backdoor. Should be treated as uninsurable
+#              or flagged for manual underwriting review.
+#   high     — chronic security track record, Mirai-era notoriety, or
+#              vendor is commonly compromised in the wild.
+#   medium   — vendor has produced insecure products historically but
+#              also ships secure modern lines; context-dependent risk.
+#
+# Matching signals (per check_bad_vendor):
+#   mac_prefixes   — IEEE OUI assignments for the vendor (uppercase, colon form)
+#   name_patterns  — substrings matched against vendor string, UPnP
+#                    manufacturer/modelName, HTTP title
+#   banner_patterns — substrings matched against HTTP Server headers
+#                     and embedded webserver identifiers
+#
+# 1 signal = low confidence (flagged), 2+ = high confidence (confirmed).
+
+version: "1.0"
+last_updated: "2026-04-16"
+
+vendors:
+
+  # ───── CRITICAL: NDAA Section 889 / FCC Covered List ─────
+
+  hikvision:
+    display_name: "Hikvision"
+    tier: critical
+    reasons:
+      - "NDAA Section 889 prohibited"
+      - "FCC Covered List"
+      - "CVE-2021-36260 unauthenticated RCE backdoor"
+      - "Targeted by Mirai and variants"
+    mac_prefixes:
+      - "44:19:B6"
+      - "4C:BD:8F"
+      - "28:57:BE"
+      - "BC:AD:28"
+      - "C0:51:7E"
+      - "18:68:CB"
+      - "F0:4A:02"
+    name_patterns:
+      - "hikvision"
+      - "hik-connect"
+      - "hikconnect"
+      - "ds-2cd"
+      - "ds-7"
+    banner_patterns:
+      - "app-webs"
+      - "dnvrs-webs"
+      - "webs/2."
+
+  dahua:
+    display_name: "Dahua"
+    tier: critical
+    reasons:
+      - "NDAA Section 889 prohibited"
+      - "FCC Covered List"
+      - "CVE-2021-33044 authentication bypass"
+      - "Targeted by Mirai and variants"
+    mac_prefixes:
+      - "3C:EF:8C"
+      - "4C:11:BF"
+      - "14:A7:8B"
+      - "90:02:A9"
+      - "A0:BD:1D"
+    name_patterns:
+      - "dahua"
+      - "amcrest"
+      - "ipc-hdw"
+      - "ipc-hfw"
+      - "nvr4"
+    banner_patterns:
+      - "dahuartspserver"
+      - "webs"
+
+  huawei:
+    display_name: "Huawei"
+    tier: critical
+    reasons:
+      - "NDAA Section 889 prohibited"
+      - "FCC Covered List"
+      - "HG series routers chronically exploited"
+    mac_prefixes:
+      - "00:1E:10"
+      - "00:25:9E"
+      - "04:BD:70"
+      - "28:6E:D4"
+      - "50:01:D9"
+      - "70:72:3C"
+      - "80:FB:06"
+      - "D2:B5:FF"
+    name_patterns:
+      - "huawei"
+      - "hg8245"
+      - "hg532"
+      - "unknown"
+    banner_patterns:
+      - "rom0"
+      - "huawei"
+
+  zte:
+    display_name: "ZTE"
+    tier: critical
+    reasons:
+      - "NDAA Section 889 prohibited"
+      - "FCC Covered List"
+      - "Multiple backdoor CVEs in consumer routers"
+    mac_prefixes:
+      - "00:19:C6"
+      - "00:25:12"
+      - "34:37:59"
+      - "4C:AC:0A"
+      - "B0:75:D5"
+    name_patterns:
+      - "zte"
+      - "zxhn"
+      - "f660"
+    banner_patterns:
+      - "zte"
+
+  hytera:
+    display_name: "Hytera"
+    tier: critical
+    reasons:
+      - "NDAA Section 889 prohibited"
+      - "FCC Covered List"
+    mac_prefixes:
+      - "00:15:A9"
+      - "00:80:64"
+    name_patterns:
+      - "hytera"
+    banner_patterns: []
+
+  # ───── HIGH: Mirai-era and chronically insecure ─────
+
+  xiongmai:
+    display_name: "XiongMai / XMEye"
+    tier: high
+    reasons:
+      - "Mirai botnet primary target (hardcoded root credentials)"
+      - "White-labels under dozens of rebrands"
+      - "No meaningful security response process"
+    mac_prefixes:
+      - "00:12:12"
+      - "00:2A:2A"
+      - "28:AB:A4"
+    name_patterns:
+      - "xiongmai"
+      - "xmeye"
+      - "xm530"
+      - "xm720"
+    banner_patterns:
+      - "uc-httpd"
+      - "xiongmai"
+
+  shenzhen_tvt:
+    display_name: "Shenzhen TVT"
+    tier: high
+    reasons:
+      - "CVE-2018-9995 authentication bypass in DVR line"
+      - "Rebadged under many brands (Novo, CeNova, QSee, etc.)"
+    mac_prefixes:
+      - "00:2A:4B"
+      - "00:7D:FA"
+      - "88:B5:FF"
+    name_patterns:
+      - "tvt"
+      - "nvms"
+      - "cenova"
+      - "qsee"
+    banner_patterns:
+      - "tvt"
+
+  foscam:
+    display_name: "Foscam (legacy firmware)"
+    tier: high
+    reasons:
+      - "Multiple CVEs in legacy C1/C2/FI series"
+      - "Hardcoded credentials in older firmware"
+    mac_prefixes:
+      - "00:62:6E"
+      - "BC:51:FE"
+      - "E8:AB:FA"
+    name_patterns:
+      - "foscam"
+    banner_patterns:
+      - "netwave ip camera"
+      - "ipcamera"
+
+  wansview:
+    display_name: "Wansview"
+    tier: high
+    reasons:
+      - "Mirai-targeted camera line"
+      - "Default credentials commonly unchanged"
+    mac_prefixes: []
+    name_patterns:
+      - "wansview"
+    banner_patterns:
+      - "wansview"
+
+  sricam:
+    display_name: "Sricam"
+    tier: high
+    reasons:
+      - "Default admin/blank credentials across product line"
+      - "Mirai-era compromise target"
+    mac_prefixes: []
+    name_patterns:
+      - "sricam"
+    banner_patterns:
+      - "sricam"
+
+  goahead_embedded:
+    display_name: "GoAhead-based embedded camera"
+    tier: high
+    reasons:
+      - "Shared embedded webserver across insecure OEM cameras"
+      - "CVE-2017-8224 / CVE-2017-8225 credential disclosure"
+    mac_prefixes: []
+    name_patterns: []
+    banner_patterns:
+      - "goahead-webs"
+      - "goahead"
+
+  # ───── MEDIUM: context-dependent risk ─────
+
+  mikrotik:
+    display_name: "MikroTik (unpatched)"
+    tier: medium
+    reasons:
+      - "VPNFilter and Meris botnet infrastructure"
+      - "Winbox CVE-2018-14847 widely exploited"
+      - "Risk depends on patch level — flag for firmware audit"
+    mac_prefixes:
+      - "4C:5E:0C"
+      - "64:D1:54"
+      - "6C:3B:6B"
+      - "74:4D:28"
+      - "B8:69:F4"
+      - "CC:2D:E0"
+      - "DC:2C:6E"
+      - "E4:8D:8C"
+    name_patterns:
+      - "mikrotik"
+      - "routeros"
+    banner_patterns:
+      - "mikrotik"
+      - "routeros"
+
+  dlink_eol:
+    display_name: "D-Link EOL SOHO"
+    tier: medium
+    reasons:
+      - "Multiple end-of-life lines with unpatched RCEs"
+      - "DIR-600/DIR-300/DIR-615 series Mirai targets"
+      - "Risk depends on specific model — flag for model audit"
+    mac_prefixes:
+      - "00:1B:11"
+      - "00:26:5A"
+      - "1C:7E:E5"
+      - "28:10:7B"
+      - "74:DA:DA"
+      - "C8:BE:19"
+    name_patterns:
+      - "d-link"
+      - "dlink"
+      - "dir-300"
+      - "dir-600"
+      - "dir-615"
+    banner_patterns:
+      - "d-link"
+      - "dlink"
